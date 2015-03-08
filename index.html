@@ -1,0 +1,51 @@
+<head>
+	<title>Fortress game</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<canvas id="my-canvas"></canvas>
+	<script src="plants/forest.js"></script>
+	<script src="buildings/castle.js"></script>
+	<script src="script.js"></script>
+	<script>
+		var castles = [];
+		var forests = [];
+	
+		var teams = ["red","blue","green","yellow"];
+	
+		for(var i = 0; i < 5; i++)
+		{
+			var x = Math.random() * canvas.width;
+			var y = Math.random() * canvas.height;
+			
+			castles.push(new Castle(x, y, teams[i%4] ));
+		}
+		
+		for(var i = 0; i < 1; i++)
+		{
+			var x = Math.random() * canvas.width;
+			var y = Math.random() * canvas.height;
+			
+			forests.push(new Forest(x, y));
+		}
+		
+		var allItems = [];
+		
+		for(var i in forests)
+		{
+			allItems.push(forests[i]);
+		}
+		
+		for(var i in castles)
+		{
+			allItems.push(castles[i]);
+		}
+		
+		allItems.sort(function(a,b){return a.y - b.y});
+		
+		for(var i in allItems){
+			drawItem(allItems[i],1);
+		}
+		
+	</script>
+</body>
