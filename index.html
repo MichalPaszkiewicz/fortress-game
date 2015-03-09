@@ -31,6 +31,15 @@
 			forests.push(new Forest(x, y));
 		}
 		
+		//create random trees
+		for(var i = 0; i < 20; i++)
+		{
+			var x = Math.random() * canvas.width;
+			var y = Math.random() * canvas.height;
+			
+			forests.push(new Tree(x, y));
+		}
+		
 		var allItems = [];
 		
 		//add forests
