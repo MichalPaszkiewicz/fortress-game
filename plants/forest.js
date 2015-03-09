@@ -6,7 +6,7 @@ var Tree = function(x, y){
 	{
 		return [
 			//trunk
-			[{type:"set",x:x,y:y}, {x: 0, y: - 40}, {x : 4, y: 0}, {x: 0, y : 40}, {type:"bezier", x : -1, y: -1, b1x : -1, b1y : 1, b2x : -2, b2y : 0}, {type:"#", colour:"white"}, {type:"-"}],
+			[{type:"set",x:x,y:y}, {x: 0, y: - 40}, {x : 4, y: 0}, {x: 0, y : 40}, {type:"~", x : -1, y: -1, b1x : -1, b1y : 1, b2x : -2, b2y : 0}, {type:"#", colour:"white"}, {type:"-"}],
 			//crown
 			[{type:"set", x : 2, y : - 40}, {type:"circle",r:20}, {type:"-"}, {type:"#",colour:"white"}, {x: 0, y: 40}, {type:"set", x: -x - 2, y:-y}]
 		];

@@ -12,18 +12,23 @@ function drawItemFromArray(item, position, scale){
 	if(item.x == undefined)item.x = 0;
 	if(item.y == undefined)item.y = 0;
 	switch(item.type){
+		//fill an area with colour
 		case "#":
 			context.fillStyle = item.colour;
 			context.fill();
 			break;
+		//draw line
 		case "-":
 			context.stroke();
 			break;
+		//begin path and move to
 		case "set":
 			context.beginPath();
+		//move to
 		case "move":
 			context.moveTo(position.x += item.x * scale,position.y += item.y * scale);
 			break;
+		//draw battlements
 		case "battlements":
 			var length = item.x * scale;
 			var btlmtSize = battlementSize;
@@ -47,13 +52,28 @@ function drawItemFromArray(item, position, scale){
 		case "circle":
 			context.arc(position.x += item.x * scale, position.y += item.y * scale, item.r, 0, 2 * Math.PI, false);
 			break;
-		case "bezier":
+		//draw bezier curve
+		case "~":
 			if(item.b1x == undefined)item.b1x = 0;
 			if(item.b1y == undefined)item.b1y = 0;
 			if(item.b2x == undefined)item.b2x = 0;
 			if(item.b2y == undefined)item.b2y = 0;
 			context.bezierCurveTo(position.x += item.b1x * scale, position.y += item.b1y * scale, position.x += item.b2x * scale, position.y += item.b2y * scale, position.x += item.x * scale, position.y += item.y * scale);
 			break;
+		//cross-hatch square
+		case "+":
+			context.beginPath();
+			context.fillRect(position.x += item.x * scale, position.y += item.y * scale, 1, 1);
+			var lineSepX = item.ex * scale/ 10;
+			var lineSepY = item.ey * scale/ 10;
+			for(var  i = 0; i < lines; i++){
+				context.moveTo(position.x + lineSepX * i, position.y);
+				context.lineTo(position.x, position.y + lineSepY * i);
+			}
+			context.fillRect(position.x += item.ex * scale, position.y += item.ey * scale, 1, 1);
+			context.stroke();
+			break;
+		//draw line
 		case "line":
 		case undefined:
 		default:
