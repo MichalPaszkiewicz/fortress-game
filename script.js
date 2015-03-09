@@ -47,6 +47,13 @@ function drawItemFromArray(item, position, scale){
 		case "circle":
 			context.arc(position.x += item.x * scale, position.y += item.y * scale, item.r, 0, 2 * Math.PI, false);
 			break;
+		case "bezier":
+			if(item.b1x == undefined)item.b1x = 0;
+			if(item.b1y == undefined)item.b1y = 0;
+			if(item.b2x == undefined)item.b2x = 0;
+			if(item.b2y == undefined)item.b2y = 0;
+			context.bezierCurveTo(position.x += item.b1x * scale, position.y += item.b1y * scale, position.x += item.b2x * scale, position.y += item.b2y * scale, position.x += item.x * scale, position.y += item.y * scale);
+			break;
 		case "line":
 		case undefined:
 		default:

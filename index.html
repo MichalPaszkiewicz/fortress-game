@@ -12,7 +12,8 @@
 		var forests = [];
 	
 		var teams = ["red","blue","green","yellow"];
-	
+		
+		//create castles
 		for(var i = 0; i < 5; i++)
 		{
 			var x = Math.random() * canvas.width;
@@ -21,6 +22,7 @@
 			castles.push(new Castle(x, y, teams[i%4] ));
 		}
 		
+		//create forests
 		for(var i = 0; i < 1; i++)
 		{
 			var x = Math.random() * canvas.width;
@@ -31,11 +33,17 @@
 		
 		var allItems = [];
 		
+		//add forests
 		for(var i in forests)
 		{
+			/*for(var j in forests[i].trees)
+			{
+				allItems.push(forests[i].trees[j]);
+			}*/
 			allItems.push(forests[i]);
 		}
 		
+		//add castles
 		for(var i in castles)
 		{
 			allItems.push(castles[i]);
