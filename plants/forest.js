@@ -1,6 +1,7 @@
-var Tree = function(x, y){
+var Tree = function(x, y, h){
 	this.x = x;
 	this.y = y;
+	this.h = h;
 	
 	this.sections = function()
 	{
