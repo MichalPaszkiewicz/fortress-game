@@ -6,7 +6,7 @@ var River = function(x, y, m, c){
 	
 	this.sections = function()
 	{
-		var intersectX = {x: -this.c / this.m, y: 0;
+		var intersectX = {x: -this.c / this.m, y: 0};
 		var intersectY = {x: 0, y: y};
 		var intersect = {x: 0, y: 0};
 		
