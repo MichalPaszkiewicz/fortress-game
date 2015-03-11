@@ -7,9 +7,9 @@ var Tree = function(x, y, h){
 	{
 		return [
 			//trunk
-			[{type:"set",x:x,y:y}, {x: 0, y: - 40}, {x : 4, y: 0}, {x: 0, y : 40}, {type:"~", x : -1, y: -1, b1x : -1, b1y : 1, b2x : -2, b2y : 0}, {type:"#", colour:"white"}, {type:"-"}],
+			[{type:"set",x:x,y:y}, {x: 0, y: - h}, {x : 4, y: 0}, {x: 0, y : h}, {type:"~", x : -1, y: -1, b1x : -1, b1y : 1, b2x : -2, b2y : 0}, {type:"#", colour:"white"}, {type:"-"}],
 			//crown
-			[{type:"set", x : 2, y : - 40}, {type:"circle",r:20}, {type:"-"}, {type:"#",colour:"white"}, {x: 0, y: 40}, {type:"set", x: -x - 2, y:-y}]
+			[{type:"set", x : 2, y : - h}, {type:"circle",r:h/2}, {type:"-"}, {type:"#",colour:"white"}, {x: 0, y: h}, {type:"set", x: -x - 2, y:-y}]
 		];
 	}
 	
@@ -26,14 +26,16 @@ var Forest = function(x, y){
 	for(var i = 0; i < 100; i++){
 		treeX = ~~(Math.random() * 200) - 100;
 		treeY = ~~(Math.random() * 200) - 100;
-		this.trees.push( new Tree(treeX, treeY) );
+		var treeH = ~~(40 + Math.random() * 20);
+		this.trees.push( new Tree(treeX, treeY, treeH) );
 	}
 	
 	//outskirts
 	for(var  i = 0; i < 50; i++){
 		treeX = ~~(Math.random() * 400) - 200;
 		treeY = ~~(Math.random() * 400) - 200;
-		this.trees.push( new Tree(treeX, treeY) );
+		var treeH = ~~(20 + Math.random() * 20);
+		this.trees.push( new Tree(treeX, treeY, treeH) );
 	}
 		
 	this.trees.sort(function(a,b){return a.y - b.y});

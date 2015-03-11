@@ -36,8 +36,9 @@
 		{
 			var x = Math.random() * canvas.width;
 			var y = Math.random() * canvas.height;
+			var h = 30 + 10*Math.random();			
 			
-			forests.push(new Tree(x, y));
+			forests.push(new Tree(x, y, h));
 		}
 		
 		var allItems = [];
