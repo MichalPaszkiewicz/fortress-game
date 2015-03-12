@@ -16,6 +16,7 @@
 	<script src="scenery/forest.js"></script>
 	<script src="buildings/castle.js"></script>
 	<script src="buildings/tower.js"></script>
+	<script src="buildings/tent.js"></script>
 	<script src="script.js"></script>
 	<script>
 		var castles = [];
@@ -59,6 +60,14 @@
 			var y = Math.random() * canvas.height;
 			
 			allItems.push(new Tower(x,y, teams[i]));
+		}
+		
+		for(var i = 0; i < 3; i++)
+		{
+			var x = Math.random() * canvas.width;
+			var y = Math.random() * canvas.height;
+			
+			allItems.push(new Tent(x,y, teams[i]));
 		}
 		
 		//add forests
