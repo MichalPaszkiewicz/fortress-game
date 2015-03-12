@@ -49,6 +49,7 @@ function drawItemFromArray(item, position, scale){
 				}
 			}
 			break;
+		//draw circle
 		case "circle":
 			context.arc(position.x += item.x * scale, position.y += item.y * scale, item.r, 0, 2 * Math.PI, false);
 			break;
